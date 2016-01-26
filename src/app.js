@@ -4,11 +4,11 @@
 'use strict';
 
 import React from 'react';
-import Hello from './component.js';
-import './main.css';
+import Hello from './js/component.js';
+import './css/main.css';
 
-main();
+app();
 
-function main() {
+function app() {
     React.render(<Hello/>, document.getElementById('app'));
 }
