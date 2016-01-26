@@ -4,7 +4,7 @@
 'use strict';
 
 import React from 'react';
-import Hello from './component.jsx';
+import Hello from './component.js';
 import './main.css';
 
 main();
