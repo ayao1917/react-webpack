@@ -7,11 +7,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Router from 'react-router';
 import { DefaultRoute, Link, Route, RouteHandler} from 'react-router';
-import Icon from 'react-fa';
 
-import MenuScript from './js/utils/menuScript.js';
-import FirstPageHandler from './js/pages/firstPage.js';
-import SecondPageHandler from './js/pages/secondPage.js';
+import MenuScript from './js/scripts/menuScript.js';
+import SideMenu from './js/layouts/frame/sideMenu.js';
+import ContentContainer from './js/layouts/frame/contentContainer.js';
+import FirstPageHandler from './js/layouts/pages/firstPage.js';
+import SecondPageHandler from './js/layouts/pages/secondPage.js';
 import './css/style.css';
 
 let App = React.createClass({
@@ -23,41 +24,8 @@ let App = React.createClass({
     render() {
         return (
             <div id="container">
-                <aside id="sidemenu-container">
-                    <div id="sidemenu">
-                        <div id="author-profile">
-                            <div className="author-profile-photo">
-                                <img id="profileImg" alt=""/>
-                            </div>
-
-                            <div className="author-profile-content">
-                                <p className="title">ReactApp</p>
-
-                                <p className="subtitle">app@react.com</p>
-                            </div>
-                        </div>
-                        <nav id="nav-container">
-                            <ul className="nav">
-                                <li><Link to="first" className="current nav-with-ul content">首頁</Link></li>
-                                <li><Link to="second" className="nav-with-ul content">台視</Link></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </aside>
-
-                <section id="content-container" className="dark">
-
-                    <header id="header">
-                        <Icon id="menu-trigger" name='bars' className="header-button" />
-                        <h1><a href="#">2TVNow</a></h1>
-                    </header>
-
-                    <div id="content" className="blog">
-
-                        <RouteHandler/>
-                    </div>
-                </section>
-
+                <SideMenu />
+                <ContentContainer />
             </div>
         );
     }
