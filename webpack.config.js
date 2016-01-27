@@ -24,6 +24,9 @@ config = {
         }, {
             test: /\.css$/, // Only .css files
             loader: 'style!css' // Run both loaders
+        }, {
+            test: /\.(png|jpg)$/,
+            loader: 'url?limit=25000'
         }]
     }
 };

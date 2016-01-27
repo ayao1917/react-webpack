@@ -8,18 +8,37 @@ import ReactDOM from 'react-dom';
 import Router from 'react-router';
 import { DefaultRoute, Link, Route, RouteHandler} from 'react-router';
 
-import LoginHandler from './js/login.js';
-import './css/main.css';
+import LoginHandler from './js/pages/login.js';
+import './css/style.css';
 
 let App = React.createClass({
     render() {
         return (
-            <ul className="nav">
-                <li><Link to="app">Home</Link></li>
-                <li><Link to="login">Login</Link></li>
+            <div id="container">
+                <aside id="sidemenu-container" className="">
+                    <div id="sidemenu">
+                        <div id="author-profile">
+                            <div className="author-profile-photo">
+                                <img src="./images/authorProfile.jpg" alt=""/>
+                            </div>
+
+                            <div className="author-profile-content">
+                                <p className="title">ReactApp</p>
+
+                                <p className="subtitle">app@react.com</p>
+                            </div>
+                        </div>
+                        <nav id="nav-container">
+                            <ul className="nav">
+                                <li><Link to="app" className="current nav-with-ul content">首頁</Link></li>
+                                <li><Link to="login" className="nav-with-ul content">台視</Link></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
 
                 <RouteHandler/>
-            </ul>
+            </div>
         );
     }
 });
