@@ -7,10 +7,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Router from 'react-router';
 import { DefaultRoute, Link, Route, RouteHandler} from 'react-router';
+import Icon from 'react-fa';
 
 import MenuScript from './js/utils/menuScript.js';
-
-import LoginHandler from './js/pages/login.js';
+import FirstPageHandler from './js/pages/firstPage.js';
+import SecondPageHandler from './js/pages/secondPage.js';
 import './css/style.css';
 
 let App = React.createClass({
@@ -21,7 +22,7 @@ let App = React.createClass({
     render() {
         return (
             <div id="container">
-                <aside id="sidemenu-container" className="">
+                <aside id="sidemenu-container">
                     <div id="sidemenu">
                         <div id="author-profile">
                             <div className="author-profile-photo">
@@ -36,14 +37,26 @@ let App = React.createClass({
                         </div>
                         <nav id="nav-container">
                             <ul className="nav">
-                                <li><Link to="app" className="current nav-with-ul content">首頁</Link></li>
-                                <li><Link to="login" className="nav-with-ul content">台視</Link></li>
+                                <li><Link to="first" className="current nav-with-ul content">首頁</Link></li>
+                                <li><Link to="second" className="nav-with-ul content">台視</Link></li>
                             </ul>
                         </nav>
                     </div>
                 </aside>
 
-                <RouteHandler/>
+                <section id="content-container" className="dark">
+
+                    <header id="header">
+                        <Icon id="menu-trigger" name='bars' className="header-button" />
+                        <h1><a href="#">2TVNow</a></h1>
+                    </header>
+
+                    <div id="content" className="blog">
+
+                        <RouteHandler/>
+                    </div>
+                </section>
+
             </div>
         );
     }
@@ -51,7 +64,8 @@ let App = React.createClass({
 
 let routes = (
     <Route name="app" path="/" handler={App}>
-        <Route name="login" path="/login" handler={LoginHandler}/>
+        <DefaultRoute name="first" handler={FirstPageHandler}/>
+        <Route name="second" path="/second" handler={SecondPageHandler}/>
     </Route>
 );
 

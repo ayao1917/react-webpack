@@ -7,6 +7,7 @@ export default class MenuScript {
 
     execute() {
         $('#sidemenu-container').toggleClass('active');
+        $('#sidemenu-container').toggleClass('active');
 
         /**
          *

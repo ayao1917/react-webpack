@@ -2,6 +2,7 @@
  * Created by chihyaohsu on 2016/1/12.
  */
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var node_modules = path.resolve(__dirname, 'node_modules');
 
 var APP_DIR = path.resolve(__dirname, 'src');
@@ -22,13 +23,19 @@ config = {
                 presets: ['es2015', 'react']
             }
         }, {
-            test: /\.css$/, // Only .css files
-            loader: 'style!css' // Run both loaders
-        }, {
             test: /\.(png|jpg)$/,
             loader: 'url?limit=25000'
+        }, {
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        }, {
+            test: /\.(otf|eot|svg|ttf|woff)\??/,
+            loader: 'url-loader?limit=8192'
         }]
-    }
+    },
+    plugins: [
+        new ExtractTextPlugin('bundle.css')
+    ]
 };
 
 module.exports = config;
