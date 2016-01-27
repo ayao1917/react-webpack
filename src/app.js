@@ -8,10 +8,16 @@ import ReactDOM from 'react-dom';
 import Router from 'react-router';
 import { DefaultRoute, Link, Route, RouteHandler} from 'react-router';
 
+import MenuScript from './js/utils/menuScript.js';
+
 import LoginHandler from './js/pages/login.js';
 import './css/style.css';
 
 let App = React.createClass({
+    componentDidMount: function () {
+        var script = new MenuScript();
+        script.execute();
+    },
     render() {
         return (
             <div id="container">
@@ -50,5 +56,5 @@ let routes = (
 );
 
 Router.run(routes, function (Handler) {
-    React.render(<Handler/>, document.body);
+    ReactDOM.render(<Handler/>, document.getElementById("app"));
 });
