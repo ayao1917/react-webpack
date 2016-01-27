@@ -24,7 +24,7 @@ config = {
             }
         }, {
             test: /\.(png|jpg)$/,
-            loader: 'url?limit=25000'
+            loader: 'url-loader?limit=100000'
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader')

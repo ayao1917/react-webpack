@@ -18,6 +18,7 @@ let App = React.createClass({
     componentDidMount: function () {
         var script = new MenuScript();
         script.execute();
+        document.getElementById("profileImg").src = require('./images/authorProfile.jpg');
     },
     render() {
         return (
@@ -26,7 +27,7 @@ let App = React.createClass({
                     <div id="sidemenu">
                         <div id="author-profile">
                             <div className="author-profile-photo">
-                                <img src="./images/authorProfile.jpg" alt=""/>
+                                <img id="profileImg" alt=""/>
                             </div>
 
                             <div className="author-profile-content">
