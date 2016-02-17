@@ -1,5 +1,3 @@
-let $ = require('jquery');
-
 export default class MenuScript {
     constructor(props) {
         //TODO: add initial here if need
@@ -46,16 +44,19 @@ export default class MenuScript {
 
         var opened = false;
         $('#menu-trigger').bind('click', function (event) {
-            $('#content-container').toggleClass('active');
-            $('#sidemenu').toggleClass('active');
-            if (opened) {
-                opened = false;
-                setTimeout(function () {
-                    $('#sidemenu-container').removeClass('active');
-                }, 500);
-            } else {
-                $('#sidemenu-container').addClass('active');
-                opened = true;
+            if (!$(this).hasClass('inside')) {
+                $('#content-container').toggleClass('active');
+                $('#sidemenu').toggleClass('active');
+
+                if (opened) {
+                    opened = false;
+                    setTimeout(function () {
+                        $('#sidemenu-container').removeClass('active');
+                    }, 500);
+                } else {
+                    $('#sidemenu-container').addClass('active');
+                    opened = true;
+                }
             }
         });
 
